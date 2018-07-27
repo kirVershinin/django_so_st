@@ -5,4 +5,3 @@ include/
 .pip-selfcheck.json
 *.log
 local_settings.py
-db.sqlite3
