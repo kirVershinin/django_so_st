@@ -1,1 +1,20 @@
-{{ question }}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ question.title }}</title>
+</head>
+<body>
+    <h1>{{ question.title }}</h1>
+    <div>{{ question.text }}</div>
+    <hr>
+    <ul>
+    {% for answer in question.answer_set.all %}
+        <li>{{ answer }}</li>
+    {% endfor %}
+    </ul>
+    <hr>
+    <div><a href="/">Return to main page</a></div>
+	<div><a href="/popular/">Popular questions</a></div>
+
+</body>
+</html>
