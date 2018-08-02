@@ -5,10 +5,11 @@
 </head>
 <body>
 <h1>Latest questions</h1>
+<hr>
 {% for question in question %}
 	<a href="/question/{{question.id }}/">{{ question.title }}</a><br>
 {% endfor %}
-
+<hr>
 <div class="pagination">
 	<span class="step-links">
   		{% if question.has_previous %}
@@ -26,7 +27,9 @@
 		{% endif %}
 		</span>
 		</div>
-<div><a href="popular/">Popular questions</a></div>
+<hr>
+<div><a href="/popular/">Popular questions</a></div>
+<hr>
+<div><a href="/ask/">Ask question</a></div>
 </body>
 </html>
-

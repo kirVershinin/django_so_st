@@ -13,8 +13,15 @@
     {% endfor %}
     </ul>
     <hr>
-    <div><a href="/">Return to main page</a></div>
-	<div><a href="/popular/">Popular questions</a></div>
-
+<form action='.' method='POST'>{% csrf_token %}
+    {{ form.as_p }}
+    <input type='submit' value='Reply' />
+</form>
+<hr>
+<div><a href="/popular/">Popular questions</a></div>
+<hr>
+<div><a href="/ask/">Ask question</a></div>
+<hr>
+<div><a href="/">Return to main page</a></div>
 </body>
 </html>
