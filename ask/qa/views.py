@@ -36,8 +36,9 @@ def ask(request):
 	if request.method == 'POST':
 		form = AskForm(request.POST)
 		if form.is_valid():
-			form._user = request.user
-			post = form.save()
+			post = form.save(commit=False)
+			post.author = request.user
+			post.save()
 			return HttpResponseRedirect(reverse('question', args=[post.id]))
 	else:
 		form = AskForm(initial={'author':request.user})
