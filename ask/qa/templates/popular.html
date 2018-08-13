@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Popular</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
 <h1>Popular questions</h1>
 <hr>
 {% for question in question %}
@@ -26,10 +23,9 @@
             <a href="?page={{ question.paginator.num_pages }}">last &raquo;</a>
         {% endif %}
         </span>
-		</div>
+        </div>
 <hr>
 <div><a href="/ask/">Ask question</a></div>
 <hr>
 <div><a href="/">Return to main page</a></div>
-</body>
-</html>
+{% endblock %}

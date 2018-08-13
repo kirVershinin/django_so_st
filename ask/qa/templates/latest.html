@@ -1,38 +1,44 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-</head>
-<body>
-<hr>
-<div><a href="/signup/">Signup</a></div><div><a href="/login/">Login</a></div>
-<hr>
-<h1>Latest questions</h1>
-<hr>
-{% for question in question %}
-	<a href="/question/{{question.id }}/">{{ question.title }}</a><br>
-{% endfor %}
-<hr>
-<div class="pagination">
-	<span class="step-links">
-  		{% if question.has_previous %}
-			<a href="?page=1">&laquo; first</a>
-			<a href="?page={{ question.previous_page_number }}">previous</a>
-		{% endif %}
-		
-		<span class="current">
-			Page {{ question.number }} of {{ question.paginator.num_pages }}.
-		</span>
-		
-		{% if question.has_next %}
-			<a href="?page={{ question.next_page_number }}">next</a>
-			<a href="?page={{ question.paginator.num_pages }}">last &raquo;</a>
-		{% endif %}
-		</span>
+{% extends 'base.html' %}
+
+{% block content %}
+	
+	<div class="maxWidth">
+		<div id="userLinks">
+			<div id="signup" class="link">Signup</div>
+			<div id="login" class="link">Login</div>
 		</div>
-<hr>
-<div><a href="/popular/">Popular questions</a></div>
-<hr>
-<div><a href="/ask/">Ask question</a></div>
-</body>
-</html>
+		<h1>Latest questions</h1>
+		<hr>
+		{% for question in question %}
+			<a href="/question/{{question.id }}/">{{ question.title }}</a><br>
+		{% endfor %}
+		<hr>
+		<div class="pagination">
+			<span class="step-links">
+		  		{% if question.has_previous %}
+					<a href="?page=1">« first</a>
+					<a href="?page={{ question.previous_page_number }}">previous</a>
+				{% endif %}
+				
+				<span class="current">
+					Page {{ question.number }} of {{ question.paginator.num_pages }}.
+				</span>
+				
+				{% if question.has_next %}
+					<a href="?page={{ question.next_page_number }}">next</a>
+					<a href="?page={{ question.paginator.num_pages }}">last »</a>
+				{% endif %}
+				</span>
+				</div>
+		<hr>
+		<div><a href="/popular/">Popular questions</a></div>
+		<hr>
+		<div><a href="/ask/">Ask question</a></div>
+		<div id="overlay"></div>
+		<div id="auth">
+			<div id="closeAuth">×</div>
+			<div id="authContent"></div>
+		</div>
+	</div>
+
+{% endblock %}
